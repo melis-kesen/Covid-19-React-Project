@@ -13,11 +13,6 @@ Use the package manager [npm](https://www.npmjs.com) to install node modules.
 cd Frontend
 npm install 
 ```
-## Docker
-
-```bash
-docker-compose up --build
-```
 
 ## Utility
 - The application utilizes the OpenAPI provided by https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics/ as its API.
@@ -40,7 +35,6 @@ To run the application, execute the following command:
 
 docker build -t covid19-react-app . 
 docker run -p 3000:3000 covid19-react-app
-
 ```
 - Upon completion of the build, navigate to localhost:3000 in your web browser.
 - A world map will be displayed, and when countries colored on the map are clicked, information about the respective country will be shown in tabular form. 
