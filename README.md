@@ -3,7 +3,7 @@
 An application where, when a specific country is clicked on a world map, information such as confirmed COVID-19 cases, deaths, recovered cases, and the date of last update are displayed along with the country details on another screen.
 
 ## Application
-![](./gif1.gif)
+![](./covid.gif)
 
 ## Installation
 

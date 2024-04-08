@@ -73,7 +73,7 @@ export const CountryInfo = () => {
         type: "array",
       });
 
-      saveAsExcelFile(excelBuffer, { regionName });
+      saveAsExcelFile(excelBuffer, regionName);
     });
   };
   const saveAsExcelFile = (buffer, fileName) => {
