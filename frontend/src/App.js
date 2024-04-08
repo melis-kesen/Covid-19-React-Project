@@ -7,7 +7,7 @@ import 'primereact/resources/primereact.css'
 import 'primereact/resources/primereact.min.css'
 import 'primereact/resources/themes/saga-blue/theme.css'
 import 'primeicons/primeicons.css'
-
+;
 function App() {
   return (
     <Router>

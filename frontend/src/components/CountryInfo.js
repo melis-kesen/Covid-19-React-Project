@@ -1,4 +1,3 @@
-// components/CountryInfo.js
 import React, { useState, useEffect } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
@@ -15,7 +14,6 @@ export const CountryInfo = () => {
   const datas = useSelector(selectData);
   const loading = useSelector(selectLoading);
   const [regionName, setRegionName] = useState(null);
-  const [visible, setVisible] = useState(false);
   const cols = [
     { field: "province", header: "PROVINCE" },
     { field: "active", header: "ACTIVE" },
@@ -29,7 +27,6 @@ export const CountryInfo = () => {
 
   useEffect(() => {
     if (datas.length > 0) {
-      setVisible(false);
       setRegionName(datas[0].regionName);
     }
   }, [datas]);
@@ -179,7 +176,6 @@ export const CountryInfo = () => {
       <Dialog  
         visible={loading}
         closable={false}
-        onHide={() => setVisible(false)}
       >
         <div className="loader"  style={{ width: "10vw" }} ></div>
       </Dialog>
