@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 export const Map = () =>{
-  const geojsonData = require('./countries.geo.json'); // Dünya haritasının GeoJSON verisi
+  const geojsonData = require('../countries.geo.json'); // Dünya haritasının GeoJSON verisi
 
   const getRandomColor = () => {
     const letters = '0123456789ABCDEF';
