@@ -19,7 +19,8 @@ export const CountryInfo = () => {
     { field: "active", header: "ACTIVE" },
     { field: "confirmed", header: "CONFIRMED" },
     { field: "deaths", header: "DEATHS" },
-    { field: "recovered", header: "RECOVERED" },
+    { field: "fatalityRate", header: "FATALITY RATE" },
+    { field: "date", header: "UPDATED DATE" },
   ];
   useEffect(() => {
     dispatch(fetchDataRequest(name));
@@ -39,15 +40,14 @@ export const CountryInfo = () => {
   const deathsBodyComponent = (rowData) => {
     return <span>{rowData.deaths.toLocaleString("tr")}</span>;
   };
-  const recoveredBodyComponent = (rowData) => {
-    return <span>{rowData.recovered.toLocaleString("tr")}</span>;
+  const fatalityRateBodyComponent = (rowData) => {
+    return <span>{rowData.fatalityRate.toLocaleString("tr")}</span>;
+  };
+  const dateBodyComponent = (rowData) => {
+    return <span>{rowData.date.toLocaleString("tr")}</span>;
   };
   const provinceBodyComponent = (rowData) => {
-    return (
-      <span>
-        { rowData.province.toLocaleString("tr")}
-      </span>
-    );
+    return <span>{rowData.province.toLocaleString("tr")}</span>;
   };
   const exportColumns = cols.map((col) => ({
     title: col.header,
@@ -73,7 +73,7 @@ export const CountryInfo = () => {
         type: "array",
       });
 
-      saveAsExcelFile(excelBuffer, {regionName});
+      saveAsExcelFile(excelBuffer, { regionName });
     });
   };
   const saveAsExcelFile = (buffer, fileName) => {
@@ -120,7 +120,7 @@ export const CountryInfo = () => {
 
   return (
     <div className="card">
-      {!loading && (
+      {!loading && datas.length > 0 && (
         <>
           <h1 style={{ textAlign: "center" }}>{regionName?.toUpperCase()}</h1>
           <div>
@@ -139,7 +139,7 @@ export const CountryInfo = () => {
               paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
               currentPageReportTemplate="{first} to {last} of {totalRecords}"
             >
-             <Column
+              <Column
                 field="province"
                 body={provinceBodyComponent}
                 header="PROVINCE"
@@ -164,20 +164,28 @@ export const CountryInfo = () => {
                 sortable
               ></Column>
               <Column
-                field="recovered"
-                header="RECOVERED"
-                body={recoveredBodyComponent}
+                field="fatalityRate"
+                header="FATALITY RATE"
+                body={fatalityRateBodyComponent}
+                sortable
+              ></Column>
+              <Column
+                field="date"
+                header="UPDATED DATE"
+                body={dateBodyComponent}
                 sortable
               ></Column>
             </DataTable>
           </div>
         </>
       )}
-      <Dialog  
-        visible={loading}
-        closable={false}
-      >
-        <div className="loader"  style={{ width: "10vw" }} ></div>
+      {!loading && datas.length <= 0 && (
+        <h1 style={{ textAlign: "center" }}>
+          There is no avaliable data for this country.
+        </h1>
+      )}
+      <Dialog visible={loading} closable={false}>
+        <div className="loader" style={{ width: "10vw" }}></div>
       </Dialog>
     </div>
   );

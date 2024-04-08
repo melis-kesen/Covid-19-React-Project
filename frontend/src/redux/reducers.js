@@ -1,9 +1,13 @@
-import { FETCH_DATA_REQUEST, FETCH_DATA_SUCCESS, FETCH_DATA_FAILURE } from './actions';
+import {
+  FETCH_DATA_REQUEST,
+  FETCH_DATA_SUCCESS,
+  FETCH_DATA_FAILURE,
+} from "./actions";
 
 const initialState = {
   data: [],
   loading: false,
-  error: null
+  error: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -12,19 +16,19 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-        error: null
+        error: null,
       };
     case FETCH_DATA_SUCCESS:
       return {
         ...state,
         data: action.payload,
-        loading: false
+        loading: false,
       };
     case FETCH_DATA_FAILURE:
       return {
         ...state,
         loading: false,
-        error: action.payload
+        error: action.payload,
       };
     default:
       return state;
