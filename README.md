@@ -5,6 +5,10 @@ An application where, when a specific country is clicked on a world map, informa
 ## Application
 ![](./covid.gif)
 
+## Utility
+- The application utilizes the OpenAPI provided by https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics/ as its API.
+- The front-end is developed using the Leaflet and PrimeReact libraries, while the React-Redux-Saga framework is utilized for development.
+
 ## Installation
 
 Use the package manager [npm](https://www.npmjs.com) to install node modules.
@@ -13,12 +17,6 @@ Use the package manager [npm](https://www.npmjs.com) to install node modules.
 cd Frontend
 npm install 
 ```
-
-## Utility
-- The application utilizes the OpenAPI provided by https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics/ as its API.
-- The front-end is developed using the Leaflet and PrimeReact libraries, while the React-Redux-Saga framework is utilized for development.
-
-
 ## Docker
 
 ```bash
