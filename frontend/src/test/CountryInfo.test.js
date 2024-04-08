@@ -4,8 +4,6 @@ import {CountryInfo} from '../components/CountryInfo';
 
 describe('CountryInfo', () => {
   it('renders correctly', () => {
-    const {getByText} = render(<CountryInfo />);
-    //const linkElement = getByText(/Hello World/i);
-    //expect(linkElement).toBeInTheDocument();
+    render(<CountryInfo />);
   });
 });
