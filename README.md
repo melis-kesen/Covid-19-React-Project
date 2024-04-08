@@ -27,7 +27,8 @@ docker-compose up --build
 ## Docker
 
 ```bash
-docker-compose up --build
+docker build -t covid19-react-app . 
+docker run -p 3000:8080 covid19-react-app
 ```
 
 ## Usage
@@ -37,42 +38,13 @@ docker-compose up --build
 
 To run the application, execute the following command:
 
-docker-compose up --build
-
-Upon completion of the build, navigate to localhost:3000 in your web browser. As there are no products in the database initially, you won't see any data displayed.
-
-Clicking the Generate button will open a dialog where you can input the product details:
-
-- Example:
-  - Product Name: Product 1
-  - Price: (Accepted as an integer value)
-  - SKU: SKU123 (Accepted as a unique value)
-  - Stock Level: 50
-
-Clicking the Submit button will save the product.
-
-For visual appeal, 12 default product images have been included within the project.
-
-### Possible Errors ###
-
-If the Product table is not automatically populated upon completion of the build, follow these steps:
-
-1. Access the pgAdmin panel at localhost:5050.
-   - Email: admin@admin.com
-   - Password: pgadmin4
-
-2. Right-click on the Server and select Register > Server.
-   - General:
-     - Name: Test
-   - Connection:
-     - Host: db
-     - Port: 5432
-     - Database: postgres
-     - Password: postgres
-
+docker build -t covid19-react-app . 
+docker run -p 3000:3000 covid19-react-app
 
 ```
-
+- Upon completion of the build, navigate to localhost:3000 in your web browser.
+- A world map will be displayed, and when countries colored on the map are clicked, information about the respective country will be shown in tabular form. 
+- Additionally, the data can be exported as PDF or XLS formats.
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
