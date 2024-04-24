@@ -36,7 +36,7 @@ function fetchDataFromApi(name) {
     `https://covid-19-statistics.p.rapidapi.com/reports?iso=${name}`,
     {
       headers: {
-        "X-RapidAPI-Key": "bf912b2ac4mshdabf19e77d8742bp123a75jsn5e3d3f2c9b6b",
+        "X-RapidAPI-Key": "your-key",
         "X-RapidAPI-Host": "covid-19-statistics.p.rapidapi.com",
       },
     }
